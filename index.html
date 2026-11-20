@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Am I exam-ready? · A1 German check</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main>
+    <!-- START SCREEN -->
+    <section id="start" class="card">
+      <p class="eyebrow">A1 German · Goethe / ÖSD</p>
+      <h1>Am I exam-ready?</h1>
+      <p class="lead">A 5-minute check of <strong><span id="question-count">15</span> questions</strong> across vocabulary, grammar, reading and listening, plus 3 quick questions about how you've practised. You'll see how ready you are in each skill and what to practise before you pay for the exam.</p>
+      <ul class="how">
+        <li>Answer honestly — no dictionary, no translator.</li>
+        <li>Turn your sound on for the listening questions.</li>
+        <li>If you're not sure, tick <em>“I guessed”</em>. A lucky guess shouldn't make you think you're ready.</li>
+      </ul>
+      <button id="start-btn" class="primary">Start the check</button>
+    </section>
+
+    <!-- QUIZ SCREEN -->
+    <section id="quiz" class="card hidden">
+      <div class="progress"><div id="progress-bar"></div></div>
+      <p id="progress-text" class="eyebrow"></p>
+      <pre id="passage" class="passage hidden"></pre>
+      <div id="listen" class="listen hidden">
+        <button id="play-btn" class="primary"></button>
+        <span>Like the real exam, you can hear each clip twice.</span>
+      </div>
+      <h2 id="prompt"></h2>
+      <div id="options" class="options"></div>
+      <label class="guess"><input type="checkbox" id="guessed" /> I guessed this one</label>
+      <div class="nav">
+        <button id="back-btn" class="secondary">Back</button>
+        <button id="next-btn" class="primary">Next</button>
+      </div>
+    </section>
+
+    <!-- EXAM HABITS SCREEN -->
+    <section id="habits" class="card hidden">
+      <p class="eyebrow">Last step</p>
+      <h2>How have you practised?</h2>
+      <p class="hint">Many learners who fail A1 knew enough German but had never spoken it to a person or done a timed mock exam. Be honest — this is only for you.</p>
+      <div id="habit-list"></div>
+      <button id="result-btn" class="primary">See my result</button>
+    </section>
+
+    <!-- RESULT SCREEN -->
+    <section id="result" class="card hidden">
+      <div id="verdict" class="verdict">
+        <div>
+          <h2 id="verdict-title"></h2>
+          <p id="verdict-text"></p>
+        </div>
+        <div class="overall"><span id="overall"></span><small>overall</small></div>
+      </div>
+
+      <h3>Your readiness by skill</h3>
+      <p class="hint">The line on each bar is the 60% exam pass mark. We call a skill “Ready” at 80%.</p>
+      <div id="skills"></div>
+
+      <h3>Practise these before you book</h3>
+      <ol id="tips" class="tips"></ol>
+
+      <details>
+        <summary>See all your answers</summary>
+        <ol id="review" class="review"></ol>
+      </details>
+
+      <p class="note">This check tests vocabulary, grammar, reading and listening. Speaking and writing are checked only through your answers about how you've practised.</p>
+      <button id="restart-btn" class="secondary">Take the check again</button>
+    </section>
+  </main>
+
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
