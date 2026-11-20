@@ -80,6 +80,7 @@ function playAudio() {
   speech.rate = 0.9;
   const german = speechSynthesis.getVoices().find((v) => v.lang.startsWith("de"));
   if (german) speech.voice = german;
+  else $("listen-note").textContent = "Your browser has no German voice, so this may sound wrong. For best results open this page in Chrome or Edge.";
   speechSynthesis.speak(speech);
   a.plays++;
   renderQuestion();
