@@ -1,8 +1,10 @@
 # Am I exam-ready? — A1 German readiness check
 
+**By Shoyab Sayyed**
+
 A 5-minute check that tells an A1 German learner whether they are ready to book the Goethe / ÖSD A1 exam, broken down by skill, and the 2–3 things to practise first.
 
-Built for the Globio Founder's Office – Product Manager Intern assignment.
+Built by **Shoyab Sayyed** for the Globio Founder's Office – Product Manager Intern assignment.
 
 **Live app:** https://sayyedshoyab5-ship-it.github.io/exam-ready/
 
