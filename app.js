@@ -5,7 +5,7 @@ const PASS_MARK = 60;       // Goethe A1 pass mark is 60%. Below this = "Not yet
 const READY_MARK = 80;      // We ask for 80% to leave a safety margin above the pass mark.
 const GUESS_CREDIT = 0.5;   // A correct answer the learner says they guessed counts as half.
 const MAX_TIPS = 3;         // How many practice tips to show.
-const MAX_PLAYS = 3;        // How often a listening clip can be played (like the real exam).
+const MAX_PLAYS = 2;        // How often a listening clip can be played (like the real exam).
 
 // =====================================================================
 //  APP STATE
