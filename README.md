@@ -36,6 +36,10 @@ At A1 a failed exam means repeating the **whole** exam and paying the **full** f
 | Overall verdict "Ready" only if: average ≥ 80% **and** no skill below 60% **and** all exam habits are "Yes" | One weak skill, or never having spoken German aloud, is a real risk even with a good average |
 | Tips = missing exam habits first, then the topics where the most points were lost | Specific next steps instead of "study more" |
 
+## Design
+
+German theme designed in Figma: a black-red-gold stripe on every screen, gold progress bars and a Brandenburg Gate illustration. Verdicts deliberately use green / amber / red, not the flag's red, so "Not yet" doesn't read as an error. Mobile-first, because most learners will open it on their phone.
+
 ## Code structure
 
 No framework, no build step — just open `index.html` in a browser.
@@ -45,7 +49,8 @@ No framework, no build step — just open `index.html` in a browser.
 | `index.html` | The four screens: start, quiz, exam habits, result |
 | `questions.js` | All questions, the exam-habit questions, and the practice tip for each topic — **edit here to change content** |
 | `app.js` | Settings at the top (pass mark, ready mark, guess credit, plays), then quiz flow, scoring (`calculate()`) and the result screen |
-| `style.css` | Styling |
+| `style.css` | Styling (German theme) |
+| `gate.svg` | Brandenburg Gate illustration |
 
 ## Common changes
 

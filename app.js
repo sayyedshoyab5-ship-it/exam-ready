@@ -56,7 +56,8 @@ function renderQuestion() {
   q.options.forEach((opt, i) => {
     const btn = document.createElement("button");
     btn.className = "option" + (a.choice === i ? " selected" : "");
-    btn.textContent = opt;
+    btn.innerHTML = '<span class="radio"></span>';
+    btn.append(opt);
     btn.onclick = () => { a.choice = i; renderQuestion(); };
     $("options").appendChild(btn);
   });
@@ -100,11 +101,11 @@ function prevQuestion() {
 // =====================================================================
 function renderHabits() {
   $("habit-list").innerHTML = HABITS.map((h, i) => `
-    <div class="habit">
-      <p>${h.question}</p>
+    <div class="card habit">
+      <p class="habit-q"><span class="num">0${i + 1}</span><span>${h.question}</span></p>
       <div class="yesno">
-        <button class="option ${habits[i] === true ? "selected" : ""}" onclick="setHabit(${i}, true)">Yes</button>
-        <button class="option ${habits[i] === false ? "selected" : ""}" onclick="setHabit(${i}, false)">No</button>
+        <button class="${habits[i] === true ? "selected" : ""}" onclick="setHabit(${i}, true)">Yes</button>
+        <button class="${habits[i] === false ? "selected" : ""}" onclick="setHabit(${i}, false)">No</button>
       </div>
     </div>`).join("");
   $("result-btn").disabled = habits.includes(null);
@@ -196,16 +197,19 @@ function showResult() {
   $("verdict-text").textContent = VERDICTS[r.verdict].text;
   $("overall").textContent = `${r.overall}%`;
 
-  $("skills").innerHTML = Object.entries(r.skills).map(([name, s]) => {
+  $("skills").innerHTML = Object.entries(r.skills).map(([name, s], i) => {
     const b = band(s.pct);
+    // Show the "60% pass mark" label once, above the first bar.
+    const passLabel = i === 0 ? `<div class="pass-label"><span style="left:${PASS_MARK}%">${PASS_MARK}% pass mark</span></div>` : "";
     return `
       <div class="skill">
-        <div class="skill-head"><span>${name}</span><span class="tag ${b.cls}">${b.label} · ${s.pct}%</span></div>
+        <div class="skill-head"><span class="name">${name}</span><span class="pct">${s.pct}%</span><span class="pill ${b.cls}">${b.label}</span></div>
+        ${passLabel}
         <div class="bar"><div class="fill ${b.cls}" style="width:${s.pct}%"></div><div class="mark" style="left:${PASS_MARK}%"></div></div>
       </div>`;
   }).join("");
 
-  $("tips").innerHTML = r.tips.map((t) => `<li><strong>${t.title}</strong><span>${t.text}</span></li>`).join("");
+  $("tips").innerHTML = r.tips.map((t, i) => `<li><span class="badge">${i + 1}</span><div><strong>${t.title}</strong><span class="text">${t.text}</span></div></li>`).join("");
 
   $("review").innerHTML = QUESTIONS.map((q, i) => {
     const a = answers[i];
